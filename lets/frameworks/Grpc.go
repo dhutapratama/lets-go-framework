@@ -82,7 +82,7 @@ func Grpc() {
 			rpcClient.init(config)
 
 			if err := rpcClient.connect(); err != nil {
-				lets.LogE("gRPC Client: error %s: desc %s", err.Error())
+				lets.LogE("gRPC Client: %s", err.Error())
 				lets.LogE("Cannot connect gRPC to %s", config.GetName())
 				continue
 			}

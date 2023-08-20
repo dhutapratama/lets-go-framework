@@ -102,4 +102,25 @@ func App() {
 			},
 		},
 	}
+
+	frameworks.TcpConfig = &types.TcpConfig{
+		Servers: []types.ITcpServer{
+			&types.TcpServer{
+				Port:    "5050",
+				Mode:    "debug",
+				Handler: &services.TcpHandlerExample{},
+			},
+		},
+		Clients: []types.ITcpClient{
+			&types.TcpClient{
+				Name: "check-Net",
+				Host: "127.0.0.1",
+				Port: "5050",
+				Mode: "debug",
+				Clients: []types.ITcpServiceClient{
+					clients.TcpExample,
+				},
+			},
+		},
+	}
 }
